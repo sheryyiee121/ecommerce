@@ -503,7 +503,11 @@ function Home() {
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Recommended items</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-6">
             {recommendedItems.map((item) => (
-              <div key={item.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow cursor-pointer">
+              <Link
+                key={item.id}
+                to={`/product/${item.id}`}
+                className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow cursor-pointer block"
+              >
                 <div className="w-full h-40 bg-gray-100 rounded-lg mb-4 overflow-hidden">
                   <img
                     src={item.image}
@@ -519,10 +523,10 @@ function Home() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-lg font-bold text-gray-900 mb-2">{item.price}</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.name}</p>
+                  <p className="text-lg font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">{item.price}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed hover:text-gray-900 transition-colors">{item.name}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

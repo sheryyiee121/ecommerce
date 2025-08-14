@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaHeart, FaStar, FaList, FaTh, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function MobileProducts() {
     // State for filters and view
@@ -146,7 +147,7 @@ function MobileProducts() {
             <div className="bg-white border-b">
                 <div className="w-full max-w-none mx-auto px-4 lg:px-8 xl:px-12 py-4">
                     <nav className="flex items-center space-x-2 text-sm text-gray-500">
-                        <span className="hover:text-blue-600 cursor-pointer">Home</span>
+                        <Link to="/" className="hover:text-blue-600 cursor-pointer">Home</Link>
                         <FaChevronRight className="w-3 h-3" />
                         <span className="hover:text-blue-600 cursor-pointer">Electronics</span>
                         <FaChevronRight className="w-3 h-3" />
@@ -339,9 +340,12 @@ function MobileProducts() {
                                                 </p>
 
                                                 {/* Action Button */}
-                                                <button className="text-blue-600 text-sm font-medium hover:underline">
+                                                <Link
+                                                    to={`/product/${product.id}`}
+                                                    className="text-blue-600 text-sm font-medium hover:underline"
+                                                >
                                                     View details
-                                                </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     ))}
